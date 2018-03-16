@@ -55,3 +55,13 @@
         - select the name of the app
         - select the type of the service
         - select the name of the service
+
+    4. Updaload the application using the cli commnand
+
+        `sfctl application upload --path ui-service --show-progress`
+
+    5. Provisioning the service using the cli command
+
+        `sfctl application provision --application-type-build-path ui-service`
+
+    

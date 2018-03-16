@@ -7,6 +7,10 @@ using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
+using System.Diagnostics;
+using System.Threading;
+using Microsoft.ServiceFabric.Services.Runtime;
+using Microsoft.ServiceFabric.Services;
 
 namespace UiService
 {
@@ -14,13 +18,24 @@ namespace UiService
     {
         public static void Main(string[] args)
         {
-            BuildWebHost(args).Run();
-        }
+            try 
+            {
+                ServiceEventSource.Current.Message("Registering Service : {0}", "ui-service");
 
-        public static IWebHost BuildWebHost(string[] args) =>
-            WebHost
-                .CreateDefaultBuilder(args)
-                .UseStartup<Startup>()
-                .Build();
+                ServiceRuntime.RegisterServiceAsync(
+                        "UiServiceType",
+                        context => new WebService(context)).GetAwaiter().GetResult();        
+
+                ServiceEventSource.Current.Message("Service registered : {0}", "ui-service");
+                ServiceEventSource.Current.ServiceTypeRegistered(Process.GetCurrentProcess().Id, typeof(WebService).Name);
+            
+                Thread.Sleep(Timeout.Infinite);
+            }
+            catch (Exception e)
+            {
+                ServiceEventSource.Current.ServiceHostInitializationFailed(e);
+                throw;
+            }
+        }
     }
 }
