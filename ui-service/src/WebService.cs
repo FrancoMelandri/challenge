@@ -27,7 +27,7 @@ namespace UiService
             {
                 new ServiceInstanceListener(
                     serviceContext =>
-                        new WebListenerCommunicationListener(
+                        new KestrelCommunicationListener(
                             serviceContext,
                             "ServiceEndpoint",
                             (url, listener) =>
@@ -35,7 +35,7 @@ namespace UiService
                                 ServiceEventSource.Current.Message($"Starting WebListener on {url}");
 
                                 return new WebHostBuilder()
-                                    .UseWebListener()
+                                    .UseKestrel()
                                     .ConfigureServices(
                                         services => services
                                             // .AddSingleton<ConfigSettings>(new ConfigSettings(serviceContext))

@@ -23,7 +23,7 @@ namespace UiService
                 ServiceEventSource.Current.Message("Registering Service : {0}", "ui-service");
 
                 ServiceRuntime.RegisterServiceAsync(
-                        "UiServiceType",
+                        "UiserviceType",
                         context => new WebService(context)).GetAwaiter().GetResult();        
 
                 ServiceEventSource.Current.Message("Service registered : {0}", "ui-service");
