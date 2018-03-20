@@ -9,6 +9,7 @@ using Microsoft.ServiceFabric.Services.Runtime;
 using Microsoft.ServiceFabric.Services.Remoting;
 using Microsoft.ServiceFabric.Services.Remoting.Runtime;
 using Microsoft.ServiceFabric.Services.Remoting.V2.FabricTransport.Runtime;
+using Microsoft.ServiceFabric.Services.Remoting.FabricTransport;
 
 namespace PlService
 {
@@ -27,10 +28,7 @@ namespace PlService
 
         protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
         {
-            return new[] 
-            { 
-                new ServiceInstanceListener(context => new FabricTransportServiceRemotingListener(context, this))
-            };
+            return this.CreateServiceRemotingInstanceListeners();
         }
 
         public Task<string> GeProductsAsync()

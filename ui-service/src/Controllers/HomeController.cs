@@ -19,15 +19,17 @@ namespace UiService.Controllers
         public async Task<IActionResult> Index() 
         {
             System.Console.WriteLine("HomeController/Index");      
-            IPlService service = Microsoft.ServiceFabric.Services.Remoting.Client.ServiceProxy.Create<IPlService>(new Uri("fabric:/pl-service"));
-            System.Console.WriteLine("HomeController/Index at {0}", service != null ? "Exist" : "NULL");
+            IPlService service = Microsoft.ServiceFabric.Services.Remoting.Client.ServiceProxy.Create<IPlService>(new Uri("fabric:/pl-service/PlService"));
+            var model = new UiService.Models.HomeModel 
+            {
+                Message = "waiting..."
+            };
             try {
-                string message = await service.GeProductsAsync();
-                System.Console.WriteLine("HomeController/Index at {0}", message);
+                model.Message = await service.GeProductsAsync();
             } catch (Exception ex) {
                 System.Console.WriteLine("Exception {0}", ex.Message);
             }
-            return View();
+            return View(model);
         }
     }
 }
