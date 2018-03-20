@@ -1,8 +1,3 @@
-// ------------------------------------------------------------
-//  Copyright (c) Microsoft Corporation.  All rights reserved.
-//  Licensed under the MIT License (MIT). See License.txt in the repo root for license information.
-// ------------------------------------------------------------
-
 namespace PlService
 {
     using System;
@@ -12,21 +7,11 @@ namespace PlService
     using System.Globalization;
     using System.Text;
 
-    /// <summary>
-    /// ServiceEventListener is a class which listens to the eventsources registered and redirects the traces to a file
-    /// Note that this class serves as a template to EventListener class and redirects the logs to /tmp/{appname_serviceName_yyyyMMddHHmmssffff}.
-    /// You can extend the functionality by writing your code to implement rolling logs for the logs written through this class.
-    /// You can also write your custom listener class and handle the registered evestsources accordingly. 
-    /// </summary>
     internal class ServiceEventListener : EventListener
     {
         private const string filepath = "/tmp/";
         private string fileName =  "pl-service" + "_" +  "PlService" + "_" + DateTime.Now.ToString("yyyyMMddHHmmssffff") + ".log";
 
-        /// <summary>
-        /// We override this method to get a callback on every event we subscribed to with EnableEvents
-        /// </summary>
-        /// <param name="eventData">The event arguments that describe the event.</param>
         protected override void OnEventWritten(EventWrittenEventArgs eventData)
         {
             string message = "";
@@ -38,7 +23,6 @@ namespace PlService
 
             using (StreamWriter writer = new StreamWriter( new FileStream(filepath + fileName, FileMode.Append)))
             {
-                // report all event information
                 writer.WriteLine(Write(eventData.Task.ToString(),
                 eventData.EventName,
                 eventData.EventId.ToString(),

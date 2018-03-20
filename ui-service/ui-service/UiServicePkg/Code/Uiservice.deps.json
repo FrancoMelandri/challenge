@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v2.0",
-    "signature": "c0588dcc0ef54592585c75eec3f045d0882f5af4"
+    "signature": "99cc0466a1245da30a4484e593a1552dde9a6467"
   },
   "compilationOptions": {
     "defines": [
@@ -29,7 +29,9 @@
           "Microsoft.NETCore.App": "2.0.0",
           "Microsoft.ServiceFabric": "6.1.472",
           "Microsoft.ServiceFabric.AspNetCore.Kestrel": "3.0.472",
-          "Microsoft.ServiceFabric.Services": "3.0.472"
+          "Microsoft.ServiceFabric.Services": "3.0.472",
+          "Microsoft.ServiceFabric.Services.Remoting": "3.0.472",
+          "PlService": "1.0.0"
         },
         "runtime": {
           "Uiservice.dll": {}
@@ -1376,6 +1378,53 @@
           "ref/netstandard2.0/Microsoft.ServiceFabric.Diagnostics.dll": {}
         }
       },
+      "Microsoft.ServiceFabric.FabricTransport.Internal/3.0.472": {
+        "dependencies": {
+          "Microsoft.ServiceFabric": "6.1.472"
+        },
+        "runtimeTargets": {
+          "runtimes/linux/lib/netstandard2.0/Microsoft.ServiceFabric.FabricTransport.McgInterop.dll": {
+            "rid": "linux",
+            "assetType": "runtime"
+          },
+          "runtimes/linux/lib/netstandard2.0/Microsoft.ServiceFabric.FabricTransport.V2.McgInterop.dll": {
+            "rid": "linux",
+            "assetType": "runtime"
+          },
+          "runtimes/linux/lib/netstandard2.0/Microsoft.ServiceFabric.FabricTransport.V2.dll": {
+            "rid": "linux",
+            "assetType": "runtime"
+          },
+          "runtimes/linux/lib/netstandard2.0/Microsoft.ServiceFabric.FabricTransport.dll": {
+            "rid": "linux",
+            "assetType": "runtime"
+          },
+          "runtimes/linux/lib/netstandard2.0/System.Private.CompilerServices.ICastable.dll": {
+            "rid": "linux",
+            "assetType": "runtime"
+          },
+          "runtimes/linux/lib/netstandard2.0/System.Private.CoreLib.InteropServices.dll": {
+            "rid": "linux",
+            "assetType": "runtime"
+          },
+          "runtimes/linux/lib/netstandard2.0/System.Private.Interop.dll": {
+            "rid": "linux",
+            "assetType": "runtime"
+          },
+          "runtimes/win/lib/netstandard2.0/Microsoft.ServiceFabric.FabricTransport.V2.dll": {
+            "rid": "win",
+            "assetType": "runtime"
+          },
+          "runtimes/win/lib/netstandard2.0/Microsoft.ServiceFabric.FabricTransport.dll": {
+            "rid": "win",
+            "assetType": "runtime"
+          }
+        },
+        "compile": {
+          "ref/netstandard2.0/Microsoft.ServiceFabric.FabricTransport.V2.dll": {},
+          "ref/netstandard2.0/Microsoft.ServiceFabric.FabricTransport.dll": {}
+        }
+      },
       "Microsoft.ServiceFabric.Services/3.0.472": {
         "dependencies": {
           "Microsoft.ServiceFabric.Data": "3.0.472",
@@ -1393,6 +1442,26 @@
         },
         "compile": {
           "ref/netstandard2.0/Microsoft.ServiceFabric.Services.dll": {}
+        }
+      },
+      "Microsoft.ServiceFabric.Services.Remoting/3.0.472": {
+        "dependencies": {
+          "Microsoft.ServiceFabric.Diagnostics.Internal": "3.0.472",
+          "Microsoft.ServiceFabric.FabricTransport.Internal": "3.0.472",
+          "Microsoft.ServiceFabric.Services": "3.0.472"
+        },
+        "runtimeTargets": {
+          "runtimes/linux/lib/netstandard2.0/Microsoft.ServiceFabric.Services.Remoting.dll": {
+            "rid": "linux",
+            "assetType": "runtime"
+          },
+          "runtimes/win/lib/netstandard2.0/Microsoft.ServiceFabric.Services.Remoting.dll": {
+            "rid": "win",
+            "assetType": "runtime"
+          }
+        },
+        "compile": {
+          "ref/netstandard2.0/Microsoft.ServiceFabric.Services.Remoting.dll": {}
         }
       },
       "Microsoft.Win32.Registry/4.4.0": {
@@ -2431,6 +2500,19 @@
           "System.Xml.XPath": "4.3.0"
         }
       },
+      "PlService/1.0.0": {
+        "dependencies": {
+          "Microsoft.NETCore.App": "2.0.0",
+          "Microsoft.ServiceFabric.Services": "3.0.472",
+          "Microsoft.ServiceFabric.Services.Remoting": "3.0.472"
+        },
+        "runtime": {
+          "PlService.dll": {}
+        },
+        "compile": {
+          "PlService.dll": {}
+        }
+      },
       "Microsoft.NETCore.App/2.0.0": {
         "dependencies": {
           "Microsoft.NETCore.DotNetHostPolicy": "2.0.0",
@@ -3273,12 +3355,26 @@
       "path": "microsoft.servicefabric.diagnostics.internal/3.0.472",
       "hashPath": "microsoft.servicefabric.diagnostics.internal.3.0.472.nupkg.sha512"
     },
+    "Microsoft.ServiceFabric.FabricTransport.Internal/3.0.472": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Swy4zYLh/YnBpaHLhInU//w8F0XU7Zzo2wNggHbdQ3TLobtuJBhxD/vhXBNYrx65ulIGaP3enYu7UCPZfDlEjw==",
+      "path": "microsoft.servicefabric.fabrictransport.internal/3.0.472",
+      "hashPath": "microsoft.servicefabric.fabrictransport.internal.3.0.472.nupkg.sha512"
+    },
     "Microsoft.ServiceFabric.Services/3.0.472": {
       "type": "package",
       "serviceable": true,
       "sha512": "sha512-bqU57r1LCOQrXs4aure0Ll5nPWQU71+kypoGR2h/EZZC8HBYsnIG3HfX9B8A6JomDgIxyl+Q61omB89aRSAFYQ==",
       "path": "microsoft.servicefabric.services/3.0.472",
       "hashPath": "microsoft.servicefabric.services.3.0.472.nupkg.sha512"
+    },
+    "Microsoft.ServiceFabric.Services.Remoting/3.0.472": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-rg11IyioOssMkDIN/oYciDP/ud40E/8Nbm+AItj1H5p7zZ+/RKWbDp6OIbRMdjrCzd++6Rp7a+CVkHBcaLBlUA==",
+      "path": "microsoft.servicefabric.services.remoting/3.0.472",
+      "hashPath": "microsoft.servicefabric.services.remoting.3.0.472.nupkg.sha512"
     },
     "Microsoft.Win32.Registry/4.4.0": {
       "type": "package",
@@ -3930,6 +4026,11 @@
       "sha512": "sha512-jw9oHHEIVW53mHY9PgrQa98Xo2IZ0ZjrpdOTmtvk+Rvg4tq7dydmxdNqUvJ5YwjDqhn75mBXWttWjiKhWP53LQ==",
       "path": "system.xml.xpath.xdocument/4.3.0",
       "hashPath": "system.xml.xpath.xdocument.4.3.0.nupkg.sha512"
+    },
+    "PlService/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     },
     "Microsoft.NETCore.App/2.0.0": {
       "type": "package",
