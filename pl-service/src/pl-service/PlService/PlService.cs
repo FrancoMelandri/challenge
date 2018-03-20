@@ -16,9 +16,13 @@ namespace PlService
     class PlService : StatelessService, 
                       IPlService                      
     {
+        private readonly IProductListProvider productListProvider;
+
         public PlService(StatelessServiceContext context)
             : base(context)
-        { }
+        { 
+            this.productListProvider = new ProductListProvider();
+        }
 
         protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
         {
@@ -27,12 +31,7 @@ namespace PlService
 
         public Task<ProductList> GeProducts(string search)
         {
-            var response = new ProductList
-            {
-                Search = search,
-                Items = new List<ProductListItem>()
-            };
-            return Task.FromResult(response);
+            return Task.FromResult(this.productListProvider.Get(search));
         }
 
         protected override async Task RunAsync(CancellationToken cancellationToken)

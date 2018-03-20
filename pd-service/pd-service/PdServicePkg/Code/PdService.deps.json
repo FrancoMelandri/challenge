@@ -9,7 +9,8 @@
       "PdService/1.0.0": {
         "dependencies": {
           "Microsoft.ServiceFabric.Services": "3.0.472",
-          "Microsoft.ServiceFabric.Services.Remoting": "3.0.472"
+          "Microsoft.ServiceFabric.Services.Remoting": "3.0.472",
+          "data": "1.0.0"
         },
         "runtime": {
           "PdService.dll": {}
@@ -200,6 +201,11 @@
             "assetType": "runtime"
           }
         }
+      },
+      "data/1.0.0": {
+        "runtime": {
+          "data.dll": {}
+        }
       }
     }
   },
@@ -250,6 +256,11 @@
       "sha512": "sha512-rg11IyioOssMkDIN/oYciDP/ud40E/8Nbm+AItj1H5p7zZ+/RKWbDp6OIbRMdjrCzd++6Rp7a+CVkHBcaLBlUA==",
       "path": "microsoft.servicefabric.services.remoting/3.0.472",
       "hashPath": "microsoft.servicefabric.services.remoting.3.0.472.nupkg.sha512"
+    },
+    "data/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     }
   }
 }

@@ -1,4 +1,14 @@
 
 @model UiService.Models.HomeModel
 
-<h1>UI Service up and running ... @Html.Raw(Model.Message)...@Html.Raw(Model.Code)...</h1>
+<div>
+    <h1>UI Service up and running</h1>
+</div>
+
+<div>
+    @Html.Raw(Model.Message)
+</div>
+
+<div>
+    @Html.Raw(Model.Code)
+</div>

@@ -30,7 +30,10 @@ namespace UiService.Controllers
             var model = new UiService.Models.HomeModel ();
             try {
                 var responseList = await servicePl.GeProducts(search);
-                model.Message = responseList.Search;
+                model.Message = string.Format("{0}[{1}]",
+                                                responseList.Search,
+                                                responseList.Items.Count);
+                                                
 
                 var responsePd = await servicePd.GetDetail(code);
                 model.Code = responsePd.Code;

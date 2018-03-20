@@ -10,6 +10,7 @@ namespace PlService
 
     public class ProductListItem
     {
+        public string Code { get; set; }
         public string Name { get; set; }
     }
 }
