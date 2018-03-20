@@ -9,6 +9,7 @@
     2. Start the service fabric container image
 
         `docker run -itd -p 19080-19100:19080-19100 --name sfonebox microsoft/service-fabric-onebox`
+        
     3. Logon on the Docker container
 
         `docker exec -it sfonebox bash`

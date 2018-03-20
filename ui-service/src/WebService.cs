@@ -22,7 +22,7 @@ namespace UiService
         }
 
         protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
-        {
+        {            
             return new ServiceInstanceListener[]
             {
                 new ServiceInstanceListener(
@@ -53,8 +53,6 @@ namespace UiService
 
         protected override async Task RunAsync(CancellationToken cancellationToken)
         {
-            // TODO: Replace the following sample code with your own logic 
-            //       or remove this RunAsync override if it's not needed in your service.
             while (true)
             {
                 cancellationToken.ThrowIfCancellationRequested();

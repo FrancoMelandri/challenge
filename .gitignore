@@ -250,6 +250,8 @@ typings/
 # Visual Studio 6 auto-generated workspace file (contains which files were open etc.)
 *.vbw
 
+web.config
+
 # Visual Studio LightSwitch build output
 **/*.HTMLClient/GeneratedArtifacts
 **/*.DesktopClient/GeneratedArtifacts
