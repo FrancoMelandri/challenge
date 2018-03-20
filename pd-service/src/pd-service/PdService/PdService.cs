@@ -16,17 +16,17 @@ namespace PdService
     class PdService : StatelessService, 
                       IPdService
     {
+        private IProductDetailProvider productDetailProvider;
+
         public PdService(StatelessServiceContext context)
             : base(context)
-        { }
+        { 
+            this.productDetailProvider = new ProductDetailProvider();
+        }
 
         public Task<ProductDetail> GetDetail(string code)
         {
-            var response = new ProductDetail
-            {
-                Code = code
-            };
-            return Task.FromResult(response);
+            return Task.FromResult(productDetailProvider.Get(code));
         }
 
         protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()

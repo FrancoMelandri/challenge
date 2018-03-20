@@ -31,7 +31,7 @@ The complete application is composed of three services:
 
         `./run.sh`
 
-    5. At the end of this process if you tpye http://localhost:19080 in you r browse you should see Service Fabric explorer
+    5. At the end of this process if you tpye http://localhost:19080 in your browser you should see Service Fabric explorer
 
 ---
  * Setup Service Fabric CLI
