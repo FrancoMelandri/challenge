@@ -11,28 +11,27 @@ using Microsoft.ServiceFabric.Services.Remoting.Runtime;
 using Microsoft.ServiceFabric.Services.Remoting.V2.FabricTransport.Runtime;
 using Microsoft.ServiceFabric.Services.Remoting.FabricTransport;
 
-namespace PlService
+namespace PdService
 {
-    class PlService : StatelessService, 
-                      IPlService                      
+    class PdService : StatelessService, 
+                      IPdService
     {
-        public PlService(StatelessServiceContext context)
+        public PdService(StatelessServiceContext context)
             : base(context)
         { }
+
+        public Task<ProductDetail> GetDetail(string code)
+        {
+            var response = new ProductDetail
+            {
+                Code = code
+            };
+            return Task.FromResult(response);
+        }
 
         protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
         {
             return this.CreateServiceRemotingInstanceListeners();
-        }
-
-        public Task<ProductList> GeProducts(string search)
-        {
-            var response = new ProductList
-            {
-                Search = search,
-                Items = new List<ProductListItem>()
-            };
-            return Task.FromResult(response);
         }
 
         protected override async Task RunAsync(CancellationToken cancellationToken)
