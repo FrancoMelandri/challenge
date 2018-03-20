@@ -18,14 +18,13 @@ namespace UiService.Controllers
 
         public async Task<IActionResult> Index() 
         {
-            System.Console.WriteLine("HomeController/Index");      
+            var search = HttpContext.Request.Query["search"].ToString();
+            System.Console.WriteLine("HomeController/Index with search: {0}", search);      
             IPlService service = Microsoft.ServiceFabric.Services.Remoting.Client.ServiceProxy.Create<IPlService>(new Uri("fabric:/pl-service/PlService"));
-            var model = new UiService.Models.HomeModel 
-            {
-                Message = "waiting..."
-            };
+            var model = new UiService.Models.HomeModel ();
             try {
-                model.Message = await service.GeProductsAsync();
+                var response = await service.GeProducts(search);
+                model.Message = response.Search;
             } catch (Exception ex) {
                 System.Console.WriteLine("Exception {0}", ex.Message);
             }

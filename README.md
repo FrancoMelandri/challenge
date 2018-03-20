@@ -1,11 +1,20 @@
 # My personal challenge
 
+The aim of this POC (my personal challenge) is to reate an application using Service Fabric in a macOS environment.
+The complete application is composed of three services:
+
+* ui-service (stateless) that host an ASP.NET MVC dotnet core web site.
+* pl-service (stateless) that host a WCF service and expose a catalog of products.
+* pd-service (stateless) that host a WCF service and expose the product details.
+
+
 ---
-* Setup develop environment (https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-get-started-mac)
+* Setup develop environment
 
     1. Pull the docker image
 
         `docker pull microsoft/service-fabric-onebox`
+
     2. Start the service fabric container image
 
         `docker run -itd -p 19080-19100:19080-19100 --name sfonebox microsoft/service-fabric-onebox`
@@ -53,9 +62,9 @@
 
         `yo azuresfcsharp`
 
-        - select the name of the app
-        - select the type of the service
-        - select the name of the service
+        - select the name of the app (ui-service)
+        - select the type of the service (stateless service)
+        - select the name of the service (UiService)
 
     4. Updaload the application using the cli commnand
 
@@ -65,4 +74,20 @@
 
         `sfctl application provision --application-type-build-path ui-service`
 
+    5. Create the instance of the service using the cli command
+
+        `sfctl application create --app-name fabric:/ui-service --app-type ui-serviceType --app-version 1.0.0`
     
+    6. You can also use the bash scripts to:
+
+        `./build.sh`
+
+        build the service
+
+        `./install.sh`
+
+        deploy the service in the Service Fabric Cluster
+
+        `./unistall.sh`
+
+        to remove the service from cluster

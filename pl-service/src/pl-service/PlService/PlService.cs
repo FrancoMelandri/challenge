@@ -13,11 +13,6 @@ using Microsoft.ServiceFabric.Services.Remoting.FabricTransport;
 
 namespace PlService
 {
-    public interface IPlService : IService
-    {
-        Task<string> GeProductsAsync();
-    }
-
     class PlService : StatelessService, 
                       IPlService
                       
@@ -31,9 +26,14 @@ namespace PlService
             return this.CreateServiceRemotingInstanceListeners();
         }
 
-        public Task<string> GeProductsAsync()
+        public Task<ProductList> GeProducts(string search)
         {
-            return Task.FromResult("Hello!");
+            var response = new ProductList
+            {
+                Search = search,
+                Items = new List<ProductListItem>()
+            };
+            return Task.FromResult(response);
         }
 
         protected override async Task RunAsync(CancellationToken cancellationToken)
