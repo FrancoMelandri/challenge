@@ -1,14 +1,7 @@
-
-@model UiService.Models.HomeModel
-
-<div>
-    <h1>UI Service up and running</h1>
-</div>
-
-<div>
-    @Html.Raw(Model.Message)
-</div>
-
-<div>
-    @Html.Raw(Model.Code)
-</div>
+<h1>Search for items...</h1>
+<form method="get" action="@Url.Action("Index", "ProductList")" ></form>
+    <div>
+        <input type="text" name="Search" value="" />
+        <input type="submit" value="Submit" class="submit" />
+    </div>
+</form>
