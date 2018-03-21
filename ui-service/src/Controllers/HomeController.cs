@@ -12,13 +12,13 @@ namespace UiService.Controllers
     public class HomeController : Controller 
     {    
         private readonly StatelessServiceContext serviceContext;
-        private readonly IProductListProvider productListProvider;
+        private readonly IProductListFinder productListFinder;
 
         public HomeController(StatelessServiceContext serviceContext,
-                              IProductListProvider productListProvider) 
+                              IProductListFinder productListFinder) 
         {
             this.serviceContext = serviceContext;
-            this.productListProvider = productListProvider;
+            this.productListFinder = productListFinder;
         }
 
         public async Task<IActionResult> Index() 

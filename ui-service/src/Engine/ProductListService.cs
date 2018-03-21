@@ -1,6 +1,7 @@
 using PlService;
 using System.Threading.Tasks;
 using System;
+using System.Collections.Generic;
 
 namespace UiService.Engine 
 {
@@ -18,9 +19,12 @@ namespace UiService.Engine
             this.productListService = Microsoft.ServiceFabric.Services.Remoting.Client.ServiceProxy.Create<IPlService>(new Uri("fabric:/pl-service/PlService"));
         }
 
-        public Task<ProductList> GeProducts(string search)
+        public async Task<ProductList> GeProducts(string search)
         {
-            return this.productListService.GeProducts(search);
+            var result = await this.productListService.GeProducts(search);
+            if (result.Items == null)
+                result.Items = new List<ProductListItem> ();
+            return result;
         }
     }
 }
