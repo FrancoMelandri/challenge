@@ -43,6 +43,7 @@ namespace UiService
                                             .AddSingleton<FabricClient>(new FabricClient())
                                             .AddSingleton<StatelessServiceContext>(serviceContext)
                                             .AddSingleton<IProductListFinder>(new ProductListFinder(new ProductListService()))
+                                            .AddSingleton<IProductDetailsProvider>(new ProductDetailsProvider(new ProductDetailsService()))
                                     )
                                     .UseContentRoot(Directory.GetCurrentDirectory())
                                     .UseServiceFabricIntegration(listener, ServiceFabricIntegrationOptions.None)

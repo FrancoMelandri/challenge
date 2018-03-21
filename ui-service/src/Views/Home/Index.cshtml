@@ -1,7 +1,7 @@
 <h1>Search for items...</h1>
-<form method="get" action="@Url.Action("Index", "ProductList")" ></form>
+<form method="post" action="@Url.Action("List", "Home")" >
     <div>
-        <input type="text" name="Search" value="" />
-        <input type="submit" value="Submit" class="submit" />
+        <input type="text" name="Search" />
+        <input type="submit" value="Search" class="submit"/>
     </div>
 </form>

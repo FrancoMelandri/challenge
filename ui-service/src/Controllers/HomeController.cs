@@ -13,45 +13,39 @@ namespace UiService.Controllers
     {    
         private readonly StatelessServiceContext serviceContext;
         private readonly IProductListFinder productListFinder;
+        private readonly IProductDetailsProvider productDetailsProvider;
 
         public HomeController(StatelessServiceContext serviceContext,
-                              IProductListFinder productListFinder) 
+                              IProductListFinder productListFinder,
+                              IProductDetailsProvider productDetailsProvider) 
         {
             this.serviceContext = serviceContext;
             this.productListFinder = productListFinder;
+            this.productDetailsProvider = productDetailsProvider;
         }
 
         public IActionResult Index() 
         {
-            // var search = HttpContext.Request.Query["search"].ToString();
-
-            // System.Console.WriteLine("HomeController/Index with search: {0}", search);
-
-            // var servicePl = Microsoft.ServiceFabric.Services.Remoting.Client.ServiceProxy.Create<IPlService>(new Uri("fabric:/pl-service/PlService"));
-            // var servicePd = Microsoft.ServiceFabric.Services.Remoting.Client.ServiceProxy.Create<IPdService>(new Uri("fabric:/pd-service/PdService"));
-            
-            // var model = new UiService.Models.HomeModel ();
-            // try {
-            //     var responseList = await servicePl.GeProducts(search);
-            //     model.Message = string.Format("{0}[{1}]",
-            //                                     responseList.Search,
-            //                                     responseList.Items.Count);
-                                                
-            //     if (responseList.Items.Count > 0)
-            //     {
-            //         var responsePd = await servicePd.GetDetail(responseList.Items[0].Code);
-            //         model.Code = string.Format("Details: {0}, {1}, {2}, {3} ",
-            //                                     responsePd.Code,
-            //                                     responsePd.Name,
-            //                                     responsePd.Description,
-            //                                     responsePd.Brand);
-            //     }
-
-            // } catch (Exception ex) {
-            //     System.Console.WriteLine("Exception {0}", ex.Message);
-            // }
-            //return View(model);
             return View();
         }
+
+        [HttpPost]
+        [HttpGet]
+        public async Task<IActionResult> List(string search) 
+        {
+            System.Console.WriteLine("HomeController/List with search: {0}", search);
+            var model = await this.productListFinder.Search(search);
+            System.Console.WriteLine("Items: {0}", model.Items.Length);
+            return View("list", model);
+        }
+
+        [HttpPost]
+        [HttpGet]
+        public async Task<IActionResult> Details(string code) 
+        {
+            System.Console.WriteLine("HomeController/Details with search: {0}", code);
+            var model = await this.productDetailsProvider.GetDetail(code);
+            return View("details", model);
+        }   
     }
 }

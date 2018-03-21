@@ -1,0 +1,10 @@
+@model UiService.Models.SearchViewModel
+<h1>Product list</h1>
+@foreach(var item in Model.Items) {
+    <div>
+        <span>@item.Code</span>
+        <span />
+        <span><a href="@Url.Action("Details", "Home", new { item.Code })" >@item.Name</a></span>
+    </div>
+}
+
