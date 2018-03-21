@@ -5,16 +5,20 @@ using System.Fabric;
 using PlService;
 using PdService;
 using System.Threading.Tasks;
+using UiService.Engine;
 
 namespace UiService.Controllers 
 { 
     public class HomeController : Controller 
     {    
         private readonly StatelessServiceContext serviceContext;
+        private readonly IProductListProvider productListProvider;
 
-        public HomeController(StatelessServiceContext serviceContext) 
+        public HomeController(StatelessServiceContext serviceContext,
+                              IProductListProvider productListProvider) 
         {
             this.serviceContext = serviceContext;
+            this.productListProvider = productListProvider;
         }
 
         public async Task<IActionResult> Index() 

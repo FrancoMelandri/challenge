@@ -24,10 +24,10 @@ namespace UiService
 
                 ServiceRuntime.RegisterServiceAsync(
                         "UiserviceType",
-                        context => new WebService(context)).GetAwaiter().GetResult();        
+                        context => new UiWebService(context)).GetAwaiter().GetResult();        
 
                 ServiceEventSource.Current.Message("Service registered : {0}", "ui-service");
-                ServiceEventSource.Current.ServiceTypeRegistered(Process.GetCurrentProcess().Id, typeof(WebService).Name);
+                ServiceEventSource.Current.ServiceTypeRegistered(Process.GetCurrentProcess().Id, typeof(UiWebService).Name);
             
                 Thread.Sleep(Timeout.Infinite);
             }

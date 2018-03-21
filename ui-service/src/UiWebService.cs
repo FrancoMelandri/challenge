@@ -11,12 +11,13 @@ using Microsoft.ServiceFabric.Services.Runtime;
 using System.Threading.Tasks;
 using System.Linq;
 using System.Threading;
+using UiService.Engine;
 
 namespace UiService
 {
-    internal sealed class WebService : StatelessService
+    internal sealed class UiWebService : StatelessService
     {
-        public WebService(StatelessServiceContext context)
+        public UiWebService(StatelessServiceContext context)
             : base(context)
         {
         }
@@ -38,10 +39,11 @@ namespace UiService
                                     .UseKestrel()
                                     .ConfigureServices(
                                         services => services
-                                            // .AddSingleton<ConfigSettings>(new ConfigSettings(serviceContext))
                                             .AddSingleton<HttpClient>(new HttpClient())
                                             .AddSingleton<FabricClient>(new FabricClient())
-                                            .AddSingleton<StatelessServiceContext>(serviceContext))
+                                            .AddSingleton<StatelessServiceContext>(serviceContext)
+                                            .AddSingleton<IProductListFinder>(new ProductListFinder(new ProductListService()))
+                                    )
                                     .UseContentRoot(Directory.GetCurrentDirectory())
                                     .UseServiceFabricIntegration(listener, ServiceFabricIntegrationOptions.None)
                                     .UseStartup<Startup>()

@@ -1,11 +1,14 @@
 # My personal challenge
 
-The aim of this POC (my personal challenge) is to reate an application using Service Fabric in a macOS environment.
-The complete application is composed of three services:
+The aim of this POC (my personal challenge) is to create an application using Service Fabric in a macOS environment.
+
+The application is composed of three services:
 
 * ui-service (stateless) that host an ASP.NET MVC dotnet core web site.
 * pl-service (stateless) that host a WCF service and expose a catalog of products.
 * pd-service (stateless) that host a WCF service and expose the product details.
+
+Let's start.
 
 
 ---
