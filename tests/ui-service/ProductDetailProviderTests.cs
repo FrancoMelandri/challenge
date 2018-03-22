@@ -16,8 +16,8 @@ namespace UiService.Tests
         [SetUp]
         public void SetUp() 
         {
-            productDetailsService = new Mock<IProductDetailsService>();
-            sut = new ProductDetailsProvider(productListService.Object);
+            this.productDetailsService = new Mock<IProductDetailsService>();
+            sut = new ProductDetailsProvider(productDetailsService.Object);
         }
 
         [Test]

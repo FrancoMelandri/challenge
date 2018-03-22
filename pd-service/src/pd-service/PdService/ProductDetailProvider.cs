@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using System;
 using data;
 
 namespace PdService
@@ -13,13 +14,13 @@ namespace PdService
     {
         public ProductDetail Get(string code)
         {
-            var detail = data
-                            .Catalog
-                            .Items
-                            .FirstOrDefault(item => item.Code.Equals(code));
-            if (detail != null)
-                return detail.To();
-            return ProductDetail.Empty();
+            return data
+                        .Catalog
+                        .Items
+                        .FirstOrDefault(item => item.Code.Equals(code))
+                        .ToOption()
+                        .Match<ProductDetail>(item => item.To(),
+                                              () =>  ProductDetail.Empty() );
         }        
     }
 }
