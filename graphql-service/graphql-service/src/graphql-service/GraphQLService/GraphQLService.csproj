@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <Description>GraphQL service</Description>
+    <Authors> </Authors>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+    <AssemblyName>GraphQLService</AssemblyName>
+    <OutputType>Exe</OutputType>
+    <PackageId>GraphQLService</PackageId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="../../../../../pl-service/src/pl-service/PlService/PlService.csproj" />
+    <ProjectReference Include="../../../../../pd-service/src/pd-service/PdService/PdService.csproj" />
+  
+    <PackageReference Include="GraphQL" Version="2.0.0-alpha-820" />
+    <PackageReference Include="Microsoft.ServiceFabric.Services" Version="3.0.472" />
+  </ItemGroup>
+
+</Project>
