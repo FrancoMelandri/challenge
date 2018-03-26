@@ -42,18 +42,14 @@ namespace GraphQLService
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
-            // if (env.IsDevelopment())
-            // {
-            //     app.UseDeveloperExceptionPage();
-            // }
-
-            // app.UseMiddleware<GraphQLMiddleware>(new GraphQLSettings
-            // {
-            //     BuildUserContext = ctx => new GraphQLUserContext
-            //     {
-            //         User = ctx.User
-            //     }
-            // });
+            app.UseMiddleware<GraphQLMiddleware>(new GraphQLSettings
+            {
+                BuildUserContext = ctx => new GraphQLUserContext
+                {
+                    User = ctx.User
+                }
+            });
+        
             app.UseDefaultFiles();
             app.UseStaticFiles();
         }
