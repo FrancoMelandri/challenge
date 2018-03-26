@@ -10,7 +10,8 @@
         "dependencies": {
           "Microsoft.ServiceFabric.Services": "3.0.472",
           "Microsoft.ServiceFabric.Services.Remoting": "3.0.472",
-          "data": "1.0.0"
+          "data": "1.0.0",
+          "utils": "1.0.0"
         },
         "runtime": {
           "PdService.dll": {}
@@ -206,6 +207,11 @@
         "runtime": {
           "data.dll": {}
         }
+      },
+      "utils/1.0.0": {
+        "runtime": {
+          "utils.dll": {}
+        }
       }
     }
   },
@@ -258,6 +264,11 @@
       "hashPath": "microsoft.servicefabric.services.remoting.3.0.472.nupkg.sha512"
     },
     "data/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "utils/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

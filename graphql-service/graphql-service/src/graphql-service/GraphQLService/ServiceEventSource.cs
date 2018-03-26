@@ -1,4 +1,3 @@
-
 namespace GraphQLService
 {
     using System;
