@@ -37,6 +37,7 @@ namespace GraphQLService
             services.AddSingleton<ProductsQuery>();
             services.AddSingleton<SearchViewModelType>();
             services.AddSingleton<SearchItemViewModelType>();
+            services.AddSingleton<ProductDetailsViewModelType>();
             services.AddSingleton<ISchema, ProductsSchema>();
 
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
