@@ -8,6 +8,7 @@
     <ProjectReference Include="../pl-service/src/pl-service/PlService/PlService.csproj" />
     <ProjectReference Include="../pd-service/src/pd-service/PdService/PdService.csproj" />
     <ProjectReference Include="../ui-service/src/ui-service.csproj" />
+    <ProjectReference Include="../core/core.csproj" />
 
     <PackageReference Include="Moq" Version="4.7.145" />
     <PackageReference Include="nunit" Version="3.9.0" />
