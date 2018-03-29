@@ -1,4 +1,4 @@
-namespace UiService.Models
+namespace Core
 {
     public class ProductDetailsViewModel
     {

@@ -1,5 +1,6 @@
 using System;
 using GraphQL.Types;
+using Core;
 
 namespace GraphQLService
 {

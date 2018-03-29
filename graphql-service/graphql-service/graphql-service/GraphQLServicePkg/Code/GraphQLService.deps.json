@@ -32,7 +32,8 @@
           "Microsoft.ServiceFabric.Services": "3.0.472",
           "Microsoft.ServiceFabric.Services.Remoting": "3.0.472",
           "PdService": "1.0.0",
-          "PlService": "1.0.0"
+          "PlService": "1.0.0",
+          "core": "1.0.0"
         },
         "runtime": {
           "GraphQLService.dll": {}
@@ -1453,6 +1454,20 @@
           "System.Xml.ReaderWriter": "4.3.0"
         }
       },
+      "core/1.0.0": {
+        "dependencies": {
+          "Microsoft.ServiceFabric": "6.1.472",
+          "Microsoft.ServiceFabric.Services": "3.0.472",
+          "PdService": "1.0.0",
+          "PlService": "1.0.0"
+        },
+        "runtime": {
+          "core.dll": {}
+        },
+        "compile": {
+          "core.dll": {}
+        }
+      },
       "data/1.0.0": {
         "runtime": {
           "data.dll": {}
@@ -2479,6 +2494,11 @@
       "sha512": "sha512-lJ8AxvkX7GQxpC6GFCeBj8ThYVyQczx2+f/cWHJU8tjS7YfI6Cv6bon70jVEgs2CiFbmmM8b9j1oZVx0dSI2Ww==",
       "path": "system.xml.xmldocument/4.3.0",
       "hashPath": "system.xml.xmldocument.4.3.0.nupkg.sha512"
+    },
+    "core/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     },
     "data/1.0.0": {
       "type": "project",

@@ -1,7 +1,8 @@
-namespace UiService.Models
+namespace Core
 {
     public class SearchViewModel
     {
+        public string Search { get; set; }
         public SearchItemViewModel[] Items { get; set; }
     }
 

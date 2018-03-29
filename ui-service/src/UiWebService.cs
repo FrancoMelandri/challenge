@@ -11,7 +11,7 @@ using Microsoft.ServiceFabric.Services.Runtime;
 using System.Threading.Tasks;
 using System.Linq;
 using System.Threading;
-using UiService.Engine;
+using Core;
 
 namespace UiService
 {

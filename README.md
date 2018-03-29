@@ -9,8 +9,11 @@ The application is composed of three services:
 * pd-service (stateless) that host a WCF service and expose the product details.
 * graphql-service (stateless) that host a graphQL entry point or the services.
 
-Let's start.
 
+![](https://github.com/FrancoMelandri/challenge/dashboard.png)
+
+
+Let's start.
 
 ---
 * Setup develop environment
@@ -95,3 +98,7 @@ Let's start.
         `./unistall.sh`
 
         to remove the service from cluster
+
+
+
+    ---

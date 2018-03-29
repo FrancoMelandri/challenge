@@ -10,6 +10,7 @@ using Microsoft.ServiceFabric.Services.Runtime;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using System.IO;
+using Core;
 
 namespace GraphQLService
 {

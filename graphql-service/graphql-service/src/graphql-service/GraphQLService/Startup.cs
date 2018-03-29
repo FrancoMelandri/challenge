@@ -14,6 +14,8 @@ using GraphQL;
 using GraphQL.Http;
 using GraphQL.Types;
 
+using Core;
+
 namespace GraphQLService
 {
     public class Startup

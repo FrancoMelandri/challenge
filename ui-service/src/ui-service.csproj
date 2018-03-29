@@ -12,6 +12,7 @@
   <ItemGroup>
     <ProjectReference Include="../../pl-service/src/pl-service/PlService/PlService.csproj" />
     <ProjectReference Include="../../pd-service/src/pd-service/PdService/PdService.csproj" />
+    <ProjectReference Include="../../core/core.csproj" />
 
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.ViewCompilation" Version="2.0.0" PrivateAssets="All" />
     <PackageReference Include="Microsoft.AspNetCore" Version="2.0.2" />

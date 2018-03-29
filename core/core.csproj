@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="../pl-service/src/pl-service/PlService/PlService.csproj" />
+    <ProjectReference Include="../pd-service/src/pd-service/PdService/PdService.csproj" />
+    
+    <PackageReference Include="Microsoft.ServiceFabric" Version="6.1.472" />
+    <PackageReference Include="Microsoft.ServiceFabric.Services" Version="3.0.472" />
+  </ItemGroup>
+
+</Project>

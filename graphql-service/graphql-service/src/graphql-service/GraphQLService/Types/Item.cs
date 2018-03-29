@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using GraphQL.Types;
+using Core;
 
 namespace GraphQLService
 {

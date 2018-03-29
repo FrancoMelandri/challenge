@@ -32,7 +32,8 @@
           "Microsoft.ServiceFabric.Services": "3.0.472",
           "Microsoft.ServiceFabric.Services.Remoting": "3.0.472",
           "PdService": "1.0.0",
-          "PlService": "1.0.0"
+          "PlService": "1.0.0",
+          "core": "1.0.0"
         },
         "runtime": {
           "Uiservice.dll": {}
@@ -2501,6 +2502,20 @@
           "System.Xml.XPath": "4.3.0"
         }
       },
+      "core/1.0.0": {
+        "dependencies": {
+          "Microsoft.ServiceFabric": "6.1.472",
+          "Microsoft.ServiceFabric.Services": "3.0.472",
+          "PdService": "1.0.0",
+          "PlService": "1.0.0"
+        },
+        "runtime": {
+          "core.dll": {}
+        },
+        "compile": {
+          "core.dll": {}
+        }
+      },
       "data/1.0.0": {
         "runtime": {
           "data.dll": {}
@@ -4059,6 +4074,11 @@
       "sha512": "sha512-jw9oHHEIVW53mHY9PgrQa98Xo2IZ0ZjrpdOTmtvk+Rvg4tq7dydmxdNqUvJ5YwjDqhn75mBXWttWjiKhWP53LQ==",
       "path": "system.xml.xpath.xdocument/4.3.0",
       "hashPath": "system.xml.xpath.xdocument.4.3.0.nupkg.sha512"
+    },
+    "core/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     },
     "data/1.0.0": {
       "type": "project",
