@@ -30,12 +30,14 @@ namespace GraphQLService
             services.AddSingleton<IDependencyResolver>(s => new FuncDependencyResolver(type => s.GetRequiredService(type)));
             services.AddSingleton<IDocumentExecuter, DocumentExecuter>();
             services.AddSingleton<IDocumentWriter, DocumentWriter>();
-        
-            // services.AddSingleton<ISearchProvider, SearchProvider>();
-            // services.AddSingleton<ProductsQuery>();
-            // services.AddSingleton<SearchType>();
 
-            // services.AddSingleton<ISchema, ProductsSchema>();
+            services.AddSingleton<IProductListFinder>(new ProductListFinder(new ProductListService()));
+            services.AddSingleton<IProductDetailsProvider>(new ProductDetailsProvider(new ProductDetailsService()));
+            
+            services.AddSingleton<ProductsQuery>();
+            services.AddSingleton<SearchViewModelType>();
+
+            services.AddSingleton<ISchema, ProductsSchema>();
 
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
         }

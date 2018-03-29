@@ -36,11 +36,9 @@ namespace GraphQLService
                                     .UseKestrel()
                                     .ConfigureServices(
                                         services => services
-                                            // .AddSingleton<HttpClient>(new HttpClient())
-                                            // .AddSingleton<FabricClient>(new FabricClient())
                                             .AddSingleton<StatelessServiceContext>(serviceContext)
-                                            // .AddSingleton<IProductListFinder>(new ProductListFinder(new ProductListService()))
-                                            // .AddSingleton<IProductDetailsProvider>(new ProductDetailsProvider(new ProductDetailsService()))
+                                            .AddSingleton<IProductListFinder>(new ProductListFinder(new ProductListService()))
+                                            .AddSingleton<IProductDetailsProvider>(new ProductDetailsProvider(new ProductDetailsService()))
                                     )
                                     .UseContentRoot(Directory.GetCurrentDirectory())
                                     .UseServiceFabricIntegration(listener, ServiceFabricIntegrationOptions.None)
@@ -56,7 +54,6 @@ namespace GraphQLService
             while (true)
             {
                 cancellationToken.ThrowIfCancellationRequested();
-
                 await Task.Delay(TimeSpan.FromSeconds(1), cancellationToken);
             }
         }
