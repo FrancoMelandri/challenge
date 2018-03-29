@@ -10,7 +10,7 @@ The application is composed of three services:
 * graphql-service (stateless) that host a graphQL entry point or the services.
 
 
-![](https://github.com/FrancoMelandri/challenge/dashboard.png)
+![](https://github.com/FrancoMelandri/challenge/blob/master/dashboard.png?raw=true)
 
 
 Let's start.
